@@ -1,1 +1,1 @@
-This is a simple c++ program that I am using for practice.
+This is a simple C++ program that I am using for practice.
