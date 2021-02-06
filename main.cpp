@@ -21,7 +21,9 @@ bool gridTestMenu(myGrid board);
 / Purpose: Main function for the program.
 *******************************************************/
 int main(){
-	myGrid board = myGrid(3, 3);
+	// TicTacToe only uses a 3x3 grid, but a 3x4 grid is
+	// declared here for testing purposes.
+	myGrid board = myGrid(3, 4);
 	
 	// loop until it is time to exit
 	while (mainMenu(board)){
@@ -80,6 +82,32 @@ bool gridTestMenu(myGrid board){
 	
 	cout << "Please choose an option:\n\n";
 	
+	cout << "a. Fill grid with default test variables\n";
+	cout << "b. Print the test variables\n";
+	cout << "\n";
 	
+	cin >> input;
+	
+	cout << "\n";
+	switch(input){
+		case 'a':
+			for(int i = 0; i < board.getWidth(); i++){
+				for(int j = 0; j < board.getHeight(); j++){
+					board.setGridElement(i, j, (i+(i*board.getWidth()))+j);
+				}
+			}
+			break;
+		case 'b':
+			for(int i = 0; i < board.getWidth(); i++){
+				for(int j = 0; j < board.getHeight(); j++){
+					cout << board.getGridElement(i, j);
+					cout << " ";
+				}
+				cout << "\n";
+			}
+			break;
+	}
+	
+	return keepLooping;
 }
 

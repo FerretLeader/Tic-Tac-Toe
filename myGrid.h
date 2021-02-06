@@ -43,7 +43,7 @@ class myGrid{
 		/ Creator: Michael Lee Brummitt
 		/ Purpose: Accessor to return the width of a myGrid
 		*******************************************************/
-		getWidth(){
+		int getWidth(){
 			return width;
 		}
 		
@@ -52,22 +52,56 @@ class myGrid{
 		/ Creator: Michael Lee Brummitt
 		/ Purpose: Accessor to return the height of a myGrid
 		*******************************************************/
-		getHeight(){
+		int getHeight(){
 			return height;
 		}
 		
 		/*******************************************************
-		/ Mame: myGrid(int newWidth, int newHeight)
+		/ Mame: getGridElement(int x, int y)
 		/ Creator: Michael Lee Brummitt
 		/ Purpose: Accessor to return an element of the grid
 		/ given a width position x and a height position y
 		*******************************************************/
-		getGridElement(int x, int y){
+		int getGridElement(int x, int y){
 			int returnMe;
+			
 			if(x < width && y < height){
 				returnMe = grid[x][y];
 			}else{
 				cout << "ERROR: Invalid element!";
 			}
+			
+			return returnMe;
+		}
+		
+		/*******************************************************
+		/ Mame: setGridElement(int x, int y)
+		/ Creator: Michael Lee Brummitt
+		/ Purpose: Allows the user to set an element in the grid
+		/ to an integer value. Returns a boolean value based on
+		/ success.
+		*******************************************************/
+		bool setGridElement(int x, int y, int value){
+			int returnMe;
+			
+			if(x < width && y < height){
+				grid[x][y] = value;
+				returnMe = true;
+			}else{
+				cout << "ERROR: Invalid element!";
+				returnMe = false;
+			}
+			
+			return returnMe;
+		}
+		
+		/*******************************************************
+		/ Mame: ~myGrid()
+		/ Creator: Michael Lee Brummitt
+		/ Purpose: Destructor designed to clean up a myGrid 
+		/ before the object is removed.
+		*******************************************************/
+		~myGrid(){
+			
 		}
 };
