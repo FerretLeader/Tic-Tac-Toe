@@ -100,8 +100,15 @@ class myGrid{
 		/ Creator: Michael Lee Brummitt
 		/ Purpose: Destructor designed to clean up a myGrid 
 		/ before the object is removed.
+		/ NOTE: This was a huge pain to fix, and in the end,
+		/ I'm not entirely sure what fixed it. If you get 
+		/ strange return values when removing a myGrid, check
+		/ here.
 		*******************************************************/
 		~myGrid(){
-			
+			for(int i = 0; i < height; i++){
+				delete [] grid[i];
+			}
+			delete [] grid;
 		}
 };
