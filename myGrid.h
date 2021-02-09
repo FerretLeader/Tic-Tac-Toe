@@ -4,7 +4,7 @@
 / Purpose: This file contains a myGrid class which will
 / allow you to create a grid with a size that you can
 / define.
-/ Version: 0.2
+/ Version: 1.0
 *******************************************************/
 
 #include <iostream>
@@ -19,7 +19,7 @@ class myGrid{
 	private:
 		int width;
 		int height;
-		int ** grid;
+		char ** grid;
 	public:
 		/*******************************************************
 		/ Mame: myGrid(int newWidth, int newHeight)
@@ -32,9 +32,9 @@ class myGrid{
 			width = newWidth;
 			height = newHeight;
 			
-			grid = new int*[width];
+			grid = new char*[width];
 			for(int i = 0; i < height; i++){
-				grid[i] = new int[height];
+				grid[i] = new char[height];
 			}	
 		}
 		
@@ -62,13 +62,13 @@ class myGrid{
 		/ Purpose: Accessor to return an element of the grid
 		/ given a width position x and a height position y
 		*******************************************************/
-		int getGridElement(int x, int y){
-			int returnMe;
+		char getGridElement(int x, int y){
+			char returnMe;
 			
 			if(x < width && y < height){
 				returnMe = grid[x][y];
 			}else{
-				cout << "ERROR: Invalid element!";
+				cout << "ERROR: Invalid element!\n";
 			}
 			
 			return returnMe;
@@ -78,17 +78,17 @@ class myGrid{
 		/ Mame: setGridElement(int x, int y)
 		/ Creator: Michael Lee Brummitt
 		/ Purpose: Allows the user to set an element in the grid
-		/ to an integer value. Returns a boolean value based on
+		/ to a character value. Returns a boolean value based on
 		/ success.
 		*******************************************************/
-		bool setGridElement(int x, int y, int value){
-			int returnMe;
+		bool setGridElement(int x, int y, char value){
+			bool returnMe;
 			
 			if(x < width && y < height){
 				grid[x][y] = value;
 				returnMe = true;
 			}else{
-				cout << "ERROR: Invalid element!";
+				cout << "ERROR: Invalid element!\n";
 				returnMe = false;
 			}
 			
